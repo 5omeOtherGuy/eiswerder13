@@ -1,0 +1,49 @@
+/* ============================================================
+   Version B — "without yellow"
+   Loaded AFTER site.css. No yellow/ochre/gold anywhere in the
+   interface. The brand mark (inline logo SVG in the header) is
+   the single place where the yellow survives — never recoloured.
+   Roles are re-thought, not just re-hued:
+   - primary CTA: brick red (the InselSalon colour the owner praised)
+   - misprint offsets: Havel teal (two-colour riso: brick + teal)
+   - photo tape: neutral masking-tape white
+   - event band: Havel teal — the Denkmal banner inside becomes
+     the one warm spark
+   - small marks / note / footer accents: pale ice ("Eis"-werder)
+   ============================================================ */
+
+:root {
+  --eis: #DCE9EC;   /* pale ice/water tone, derived from the Havel */
+
+  --cta-bg: var(--brick);          --cta-ink: var(--paper);
+  --sticker-hero-bg: var(--brick); --sticker-hero-ink: var(--paper);
+  --sticker-event-bg: var(--paper); --sticker-event-ink: var(--ink);
+  --tape: rgba(250, 244, 232, 0.82);
+  --misprint: var(--havel);
+  --band-event-bg: var(--havel);   --band-event-ink: var(--paper);
+  --note-bg: var(--eis);
+  --accent-ondark: var(--eis);
+  --step-bg: var(--brick);         --step-ink: var(--paper);
+  --focus-inner: var(--eis);
+  --map-door: var(--paper);
+  --ui-mark: var(--eis);
+  --foot-rule: var(--eis);
+}
+
+/* The primary CTA must stay the most prominent element on every
+   background — on a brick band a brick button would vanish,
+   so there it flips to paper with brick-deep text. */
+.band--brick .btn:not(.btn--ghost):not(.btn--havel) {
+  background: var(--paper);
+  color: var(--brick-deep);
+}
+
+/* The event band is teal in B: running text reads paper… */
+.band--sun p:not(.sticker) { color: rgba(250, 244, 232, 0.92); }
+.band--sun h3 { color: var(--paper); }
+.band--sun .sec-no { color: rgba(250, 244, 232, 0.75); }
+/* …but the event card is a paper card — its text stays ink. */
+.band--sun .event-card { color: var(--ink); }
+.band--sun .event-card p { color: var(--ink); }
+.band--sun .event-card h2, .band--sun .event-card h3 { color: var(--ink); }
+.band--sun .event-card .event-date { color: var(--brick-deep); }
