@@ -6,6 +6,37 @@
 (function () {
   "use strict";
 
+  /* ================================================================
+   * UI TEXT (German). For the English version, translate ONLY this
+   * object — nothing else in this file contains page language.
+   * ================================================================ */
+  var STRINGS = {
+    /* lightbox */
+    lbDialogLabel: "Bildansicht",
+    lbClose: "Schließen",
+    lbPrev: "Vorheriges Bild",
+    lbNext: "Nächstes Bild",
+    /* copy fallback */
+    copied: "Text kopiert ✓",
+    /* request e-mail (mailto builder) */
+    mailSubject1: "Anfrage InselSalon – ",
+    mailSubject2: " am ",
+    mailHeader: "Anfrage InselSalon EISWERDER13",
+    mailName: "Name",
+    mailEmail: "E-Mail",
+    mailPhone: "Telefon",
+    mailKind: "Art der Veranstaltung",
+    mailDate: "Wunschtermin",
+    mailDateAlt: "Alternativtermin",
+    mailTime: "Uhrzeit",
+    mailTimeUntil: " bis ",
+    mailDuration: "Dauer",
+    mailPersons: "Personenzahl",
+    mailNeeds: "Bedarf",
+    mailMessage: "Nachricht:",
+    mailNone: "–"
+  };
+
   /* ---------- mobile nav: close on Escape / link click ---------- */
   var burger = document.querySelector(".burger");
   if (burger) {
@@ -40,31 +71,31 @@
       var termin = fmtDate(val("termin"));
 
       var lines = [
-        "Anfrage InselSalon EISWERDER13",
+        STRINGS.mailHeader,
         "================================",
         "",
-        "Name: " + val("name"),
-        "E-Mail: " + val("email"),
-        "Telefon: " + (val("telefon") || "–"),
+        STRINGS.mailName + ": " + val("name"),
+        STRINGS.mailEmail + ": " + val("email"),
+        STRINGS.mailPhone + ": " + (val("telefon") || STRINGS.mailNone),
         "",
-        "Art der Veranstaltung: " + art,
-        "Wunschtermin: " + termin,
-        "Alternativtermin: " + (fmtDate(val("alternativ")) || "–"),
-        "Uhrzeit: " + (val("von") || "–") + " bis " + (val("bis") || "–"),
-        "Dauer: " + (val("dauer") || "–"),
-        "Personenzahl: " + (val("personen") || "–")
+        STRINGS.mailKind + ": " + art,
+        STRINGS.mailDate + ": " + termin,
+        STRINGS.mailDateAlt + ": " + (fmtDate(val("alternativ")) || STRINGS.mailNone),
+        STRINGS.mailTime + ": " + (val("von") || STRINGS.mailNone) + STRINGS.mailTimeUntil + (val("bis") || STRINGS.mailNone),
+        STRINGS.mailDuration + ": " + (val("dauer") || STRINGS.mailNone),
+        STRINGS.mailPersons + ": " + (val("personen") || STRINGS.mailNone)
       ];
 
       var bedarf = [];
       form.querySelectorAll('input[name="bedarf"]:checked').forEach(function (c) {
         bedarf.push(c.value);
       });
-      lines.push("Bedarf: " + (bedarf.length ? bedarf.join(", ") : "–"));
+      lines.push(STRINGS.mailNeeds + ": " + (bedarf.length ? bedarf.join(", ") : STRINGS.mailNone));
       lines.push("");
-      lines.push("Nachricht:");
-      lines.push(val("nachricht") || "–");
+      lines.push(STRINGS.mailMessage);
+      lines.push(val("nachricht") || STRINGS.mailNone);
 
-      var subject = "Anfrage InselSalon – " + art + " am " + termin;
+      var subject = STRINGS.mailSubject1 + art + STRINGS.mailSubject2 + termin;
       var body = lines.join("\r\n");
       lastBody = subject + "\r\n\r\n" + body;
 
@@ -83,7 +114,7 @@
 
     if (copyBtn) {
       copyBtn.addEventListener("click", function () {
-        var done = function () { copyBtn.textContent = "Text kopiert ✓"; };
+        var done = function () { copyBtn.textContent = STRINGS.copied; };
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(lastBody).then(done, function () { fallbackCopy(); });
         } else { fallbackCopy(); }
@@ -106,14 +137,14 @@
     lb.className = "lightbox";
     lb.setAttribute("role", "dialog");
     lb.setAttribute("aria-modal", "true");
-    lb.setAttribute("aria-label", "Bildansicht");
+    lb.setAttribute("aria-label", STRINGS.lbDialogLabel);
     lb.hidden = true;
     lb.innerHTML =
-      '<button type="button" class="lb-btn lb-close" aria-label="Schließen">×</button>' +
-      '<button type="button" class="lb-btn lb-prev" aria-label="Vorheriges Bild">←</button>' +
+      '<button type="button" class="lb-btn lb-close" aria-label="' + STRINGS.lbClose + '">×</button>' +
+      '<button type="button" class="lb-btn lb-prev" aria-label="' + STRINGS.lbPrev + '">←</button>' +
       '<img alt="">' +
       '<p class="lb-cap"></p>' +
-      '<button type="button" class="lb-btn lb-next" aria-label="Nächstes Bild">→</button>';
+      '<button type="button" class="lb-btn lb-next" aria-label="' + STRINGS.lbNext + '">→</button>';
     document.body.appendChild(lb);
 
     var lbImg = lb.querySelector("img");

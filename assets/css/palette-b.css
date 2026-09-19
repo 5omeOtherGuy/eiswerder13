@@ -18,9 +18,11 @@
   --cta-bg: var(--brick);          --cta-ink: var(--paper);
   --sticker-hero-bg: var(--brick); --sticker-hero-ink: var(--paper);
   --sticker-event-bg: var(--paper); --sticker-event-ink: var(--ink);
-  --tape: rgba(250, 244, 232, 0.82);
+  --tape: rgba(220, 233, 236, 0.92);   /* masking tape: pale ice, visible on white frames */
   --misprint: var(--havel);
-  --band-event-bg: var(--havel);   --band-event-ink: var(--paper);
+  /* event band = brick in B: separates it from the teal Anfahrt band and
+     echoes the InselSalon red; the Denkmal banner stays the warm spark */
+  --band-event-bg: var(--brick);   --band-event-ink: var(--paper);
   --note-bg: var(--eis);
   --accent-ondark: var(--eis);
   --step-bg: var(--brick);         --step-ink: var(--paper);
