@@ -52,8 +52,8 @@ textarea::placeholder{color:var(--muted);opacity:1}
 .price-card>a{margin-top:auto;align-self:flex-start}
 .price-card>.button{align-self:stretch}
 .nobr{white-space:nowrap}
-.price-explain{font-size:17px;color:var(--muted);max-width:62em;margin:28px 0 56px}
-.price-individual{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px 56px;background:var(--white);border-top:3px solid var(--teal);padding:40px;margin-bottom:72px}
+
+.price-individual{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px 56px;background:var(--white);border-top:3px solid var(--teal);padding:40px;margin:56px 0 72px}
 .price-individual>div{flex:1 1 440px;min-width:0}
 .price-individual .eyebrow{margin-bottom:14px}
 .price-individual h3{margin-bottom:12px}
@@ -76,4 +76,4 @@ textarea::placeholder{color:var(--muted);opacity:1}
 .price-terms li{padding:0}
 .price-terms strong{color:var(--ink)}
 @media(max-width:1050px){.price-cards{grid-template-columns:1fr;max-width:640px;gap:36px}.price-card-text{min-height:0}.price-info{grid-template-columns:1fr 1fr}.price-info>div:first-child{grid-row:span 2}.price-terms ul{grid-template-columns:1fr}}
-@media(max-width:760px){.pricing-head{margin-bottom:40px}.tariff-switch{width:100%}.tariff-switch label{flex:1 1 auto;gap:6px;padding:10px 12px;white-space:nowrap}.price-card{padding:36px 22px 24px}.price-badge{left:21px}.price-list dd{font-size:25px}.price-explain{margin:24px 0 40px}.price-individual{padding:28px 22px;margin-bottom:48px}.price-individual .button{width:100%}.price-info{grid-template-columns:1fr;gap:36px;margin-bottom:40px}.price-info>div:first-child{grid-row:auto}.price-figure{font-size:40px}}
+@media(max-width:760px){.pricing-head{margin-bottom:40px}.tariff-switch{width:100%}.tariff-switch label{flex:1 1 auto;gap:6px;padding:10px 12px;white-space:nowrap}.price-card{padding:36px 22px 24px}.price-badge{left:21px}.price-list dd{font-size:25px}.price-individual{padding:28px 22px;margin:40px 0 48px}.price-individual .button{width:100%}.price-info{grid-template-columns:1fr;gap:36px;margin-bottom:40px}.price-info>div:first-child{grid-row:auto}.price-figure{font-size:40px}}
