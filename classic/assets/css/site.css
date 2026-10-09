@@ -21,3 +21,59 @@ textarea::placeholder{color:var(--muted);opacity:1}
 @media(max-width:760px){.contact-person{padding-top:20px}.contact-sign{height:84px}.contacts-grid{gap:28px}}
 
 .contact-strip a:focus-visible{outline-color:var(--paper)}
+/* Iteration 4: Preise & Pakete with a tariff switch (native radios, no script). */
+.pricing-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px 64px;margin-bottom:56px}
+.pricing-head .section-intro{margin-bottom:0}
+.tariff-switch{position:relative;display:flex;margin:0}
+.tariff-switch legend{font:600 13px/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.tariff-switch input{position:absolute;left:0;bottom:0;width:1px;height:1px;margin:0;opacity:0}
+.tariff-switch label{display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;margin:0;padding:10px 22px;border:1px solid var(--teal);background:var(--white);color:var(--teal);font:600 17px/1.4 var(--sans);cursor:pointer}
+.tariff-switch label:first-of-type{border-radius:2px 0 0 2px}
+.tariff-switch label:last-of-type{border-left:0;border-radius:0 2px 2px 0}
+.tariff-switch label span{font-weight:400;white-space:nowrap}
+.tariff-switch label:hover{background:var(--stone)}
+.tariff-switch input:checked+label{background:var(--teal);color:#fff}
+.tariff-switch input:focus-visible+label{outline:3px solid var(--brick);outline-offset:4px;position:relative;z-index:1}
+.pricing:has(#tarif-standard:checked) .t-gem,.pricing:has(#tarif-gemein:checked) .t-std{display:none}
+@supports not selector(:has(*)){.tariff-switch{display:none}.t-gem{margin-top:16px}}
+.price-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.price-card{position:relative;display:flex;flex-direction:column;min-width:0;background:var(--white);border:1px solid var(--line);border-top:3px solid var(--line);padding:40px 32px 30px}
+.price-card.featured{border-color:var(--teal)}
+.price-badge{position:absolute;top:-15px;left:31px;margin:0;background:var(--brick);color:#fff;font:600 12px/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:2px}
+.price-card h3{margin-bottom:10px}
+.price-card-text{font-size:17px;color:var(--muted);min-height:3.3em;margin-bottom:20px}
+.tariff-label{font:600 13px/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--brick);margin:0 0 4px}
+.price-list{margin:0 0 28px}
+.price-list>div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.price-list>div:last-child{border-bottom:0}
+.price-list dt{font-size:17px}
+.price-list dt small{font-size:15px;color:var(--muted);margin-left:4px}
+.price-list dd{margin:0;font:27px/1.2 var(--serif);white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
+.price-card>a{margin-top:auto;align-self:flex-start}
+.price-card>.button{align-self:stretch}
+.nobr{white-space:nowrap}
+.price-explain{font-size:17px;color:var(--muted);max-width:62em;margin:28px 0 56px}
+.price-individual{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px 56px;background:var(--white);border-top:3px solid var(--teal);padding:40px;margin-bottom:72px}
+.price-individual>div{flex:1 1 440px;min-width:0}
+.price-individual .eyebrow{margin-bottom:14px}
+.price-individual h3{margin-bottom:12px}
+.price-individual p:last-child{margin:0}
+.price-info{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-bottom:64px}
+.price-info>div{border-top:1px solid #9ead9e;padding-top:24px;min-width:0}
+.price-info .eyebrow{margin-bottom:12px}
+.price-info h3,.price-terms h3{font-size:27px}
+.price-info h4{font:600 17px/1.5 var(--sans);margin:28px 0 6px}
+.price-info ul,.price-terms ul{list-style:none;padding:0;margin:0}
+.price-info li{padding:9px 0;border-bottom:1px solid var(--line);font-size:17px}
+.price-info li:first-child{padding-top:0}
+.price-info li:last-child{border:0}
+.price-info p:not(.eyebrow){font-size:17px}
+.price-info p:last-child{margin-bottom:0}
+.price-info p.price-rate{font-family:var(--serif);font-size:21px;line-height:1.4}
+.price-figure{display:block;font-size:44px;line-height:1.1;color:var(--teal);letter-spacing:-.02em}
+.price-terms{border-top:1px solid #9ead9e;padding-top:24px}
+.price-terms ul{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 48px;font-size:17px;color:var(--muted)}
+.price-terms li{padding:0}
+.price-terms strong{color:var(--ink)}
+@media(max-width:1050px){.price-cards{grid-template-columns:1fr;max-width:640px;gap:36px}.price-card-text{min-height:0}.price-info{grid-template-columns:1fr 1fr}.price-info>div:first-child{grid-row:span 2}.price-terms ul{grid-template-columns:1fr}}
+@media(max-width:760px){.pricing-head{margin-bottom:40px}.tariff-switch{width:100%}.tariff-switch label{flex:1 1 auto;gap:6px;padding:10px 12px;white-space:nowrap}.price-card{padding:36px 22px 24px}.price-badge{left:21px}.price-list dd{font-size:25px}.price-explain{margin:24px 0 40px}.price-individual{padding:28px 22px;margin-bottom:48px}.price-individual .button{width:100%}.price-info{grid-template-columns:1fr;gap:36px;margin-bottom:40px}.price-info>div:first-child{grid-row:auto}.price-figure{font-size:40px}}
