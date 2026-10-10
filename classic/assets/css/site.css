@@ -80,7 +80,7 @@ textarea::placeholder{color:var(--muted);opacity:1}
 /* Iteration 5: Rundgang photo series (lightbox), featured Café and garden stops. */
 .walk-photo{display:block;position:relative;background:var(--stone);text-decoration:none;color:var(--teal);border-radius:2px;overflow:hidden}
 .walk-photo img{transition:transform .4s ease}
-.walk-photo:hover img{transform:scale(1.02)}
+
 .walk-photo:focus-visible{outline:3px solid var(--brick);outline-offset:5px}
 .walk-count{position:absolute;right:12px;bottom:12px;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:6px 14px;background:var(--paper);color:var(--teal);font:600 15px/1.2 var(--sans);border-radius:2px;box-shadow:0 1px 3px rgba(15,32,28,.25)}
 .walk-count span{font-size:21px;font-weight:400}
